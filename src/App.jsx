@@ -5,9 +5,9 @@ const buttons = ["pomodoro", "short break", "long break"];
 
 export default function App() {
   const [inputValue, setInputValue] = useState({
-    pomodoro: 25,
-    shortBreak: 5,
-    longBreak: 15,
+    pomodoro: "25:00",
+    shortBreak: "05:00",
+    longBreak: "15:00",
   });
 
   const [selectedMode, setSelectedMode] = useState("pomodoro");
@@ -64,6 +64,34 @@ function Main({ inputValue, selectedMode }) {
   const [running, setRunning] = useState(false);
 
   useEffect(() => {
+    let interval;
+    let minutes = +timer.split(":")[0]; // + num ceviriyor. splitle böldük.
+    let seconds = +timer.split(":")[1];
+    if (running) {
+      console.log("sayac basladı");
+      interval = setInterval(() => {
+        console.log("calısıyor");
+        if (seconds === 0) {
+          if (seconds === 0 && minutes === 0) {
+            clearInterval(interval);
+            setRunning(false);
+            return;
+          }
+          seconds = 59;
+          minutes--;
+        } else {
+          seconds--;
+        }
+        setTimer(`${minutes} : ${seconds}`);
+      }, 1000);
+    }
+    return () => {
+      console.log("ssaayc durduruldu");
+      clearInterval(interval);
+    };
+  }, [running]);
+
+  useEffect(() => {
     if (selectedMode === "pomodoro") {
       setTimer(inputValue.pomodoro);
     } else if (selectedMode === "short break") {
@@ -71,17 +99,22 @@ function Main({ inputValue, selectedMode }) {
     } else if (selectedMode === "long break") {
       setTimer(inputValue.longBreak);
     }
+    setRunning(false);
   }, [inputValue, selectedMode]);
 
-  console.log(inputValue);
-  console.log(timer);
+  function handleRunnig() {
+    setRunning(!running);
+  }
+
   return (
     <>
       <div className="circle">
         <div className="textBox">
           <div className="text">
             <h1>{timer}</h1>
-            <button className={running ? "PAUSE" : "START"}>RESTART</button>
+            <button onClick={handleRunnig}>
+              {running ? "PAUSE" : "START"}
+            </button>
           </div>
         </div>
       </div>
