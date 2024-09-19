@@ -1,0 +1,266 @@
+body {
+  background-color: #1e213f;
+  font-family: "Kumbh Sans", sans-serif;
+}
+.container {
+  margin: 0 auto;
+}
+
+.header h1 {
+  margin: 48px auto;
+  color: #d7e0ff;
+  font-family: Kumbh Sans;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 39.69px;
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mode {
+  display: flex;
+  justify-content: center;
+  padding: 7px;
+  width: 373px;
+  top: 135px;
+  left: 534px;
+  gap: 0px;
+  opacity: 0px;
+  border-radius: 50px;
+  background-color: #161932;
+  border-radius: 50px;
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.modeBtn button {
+  color: #d7e0ff;
+  opacity: 0.4;
+  width: 120px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.modeBtn .selected {
+  text-align: center;
+  text-decoration: none;
+  padding: 19px 25px 15px 26px;
+  text-align: left;
+  width: 700;
+  border-radius: 50px;
+  background-color: #f87070;
+  color: #1e213f;
+}
+
+.textBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #d7e0ff;
+}
+
+.text h1 {
+  font-family: Kumbh Sans;
+  font-size: 100px;
+  font-weight: 700;
+  line-height: 124.02px;
+  letter-spacing: -5px;
+  text-align: center;
+}
+
+.text button {
+  background: none;
+  border: none;
+  color: #d7e0ff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17.36px;
+  letter-spacing: 13.125px;
+  text-align: left;
+}
+
+.circleBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 410px;
+  height: 410px;
+  gap: 0px;
+  opacity: 0px;
+  box-shadow: 50px 50px 100px 0px #121530;
+  box-shadow: -50px -50px 100px 0px #272c5a;
+  border-radius: 100%;
+  margin-bottom: 63px;
+}
+
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 339px;
+  height: 339px;
+  top: 35.5px;
+  left: 35.5px;
+  gap: 0px;
+  opacity: 0px;
+  border-radius: 100%;
+  border: 10px solid #f87070;
+}
+
+.pauseBtn {
+  border: none;
+  background: none;
+  font-family: Kumbh Sans;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19.84px;
+  letter-spacing: 15px;
+  text-align: left;
+  color: #d7e0ff;
+}
+
+.settings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: transform 1.9s ease-in-out;
+}
+.btn:hover {
+  transform: rotate(360deg);
+}
+
+.modal {
+  border-radius: 38px;
+  padding-inline: 40px;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 339px;
+  border-bottom: 1px solid #e3e1e1;
+}
+
+.exit {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.modaltimetitle {
+  font-family: Kumbh Sans;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 16.12px;
+  letter-spacing: 5px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.modaltime {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 0 24px 0;
+  border-bottom: 1px solid #e3e1e1;
+}
+
+.modaltime input {
+  width: 240px;
+  height: 48px;
+  border-radius: 16px;
+  border: none;
+  background-color: #eff1fa;
+}
+
+.item p {
+  font-family: Kumbh Sans;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14.88px;
+  text-align: left;
+  color: #1e213f;
+  opacity: 0, 4;
+}
+
+.font {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0 24px 0;
+  border-bottom: 1px solid #e3e1e1;
+}
+
+.fontBtnBox {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.fontBtn {
+  border: 1px solid black;
+  background: none;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.color {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0 24px 0;
+}
+.colorBtnBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.colorBtn {
+  border: 1px solid black;
+  background: none;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.apply {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 21px 47px 16px 47px;
+  color: #d7e0ff;
+  background-color: #f87070;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+}
+
+/*-----------------------Tablet---------*/
+@media (min-width: 768px) {
+}
+
+/*-----------------------Mobil---------*/
+@media (min-width: 375px) {
+  .content {
+    padding-inline: 38px;
+  }
+}
