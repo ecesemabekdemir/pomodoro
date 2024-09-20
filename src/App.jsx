@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import "./App.css";
 
 const buttons = ["pomodoro", "short break", "long break"];
@@ -9,8 +9,8 @@ export default function App() {
     shortBreak: "05:00",
     longBreak: "15:00",
   });
-
   const [selectedMode, setSelectedMode] = useState("pomodoro");
+  // const { theme } = useContext(FontContext);
 
   return (
     <>
@@ -65,14 +65,12 @@ function Main({ inputValue, selectedMode }) {
 
   useEffect(() => {
     let interval;
-    let minutes = +timer.split(":")[0]; // + num ceviriyor. splitle böldük.
+    let minutes = +timer.split(":")[0];
     let seconds = +timer.split(":")[1];
     if (running) {
-      console.log("sayac basladı");
       interval = setInterval(() => {
-        console.log("calısıyor");
         if (seconds === 0) {
-          if (seconds === 0 && minutes === 0) {
+          if (minutes === 0) {
             clearInterval(interval);
             setRunning(false);
             return;
@@ -82,13 +80,10 @@ function Main({ inputValue, selectedMode }) {
         } else {
           seconds--;
         }
-        setTimer(`${minutes} : ${seconds}`);
+        setTimer(`${minutes} : ${seconds < 10 ? "0" + seconds : seconds}`);
       }, 1000);
     }
-    return () => {
-      console.log("ssaayc durduruldu");
-      clearInterval(interval);
-    };
+    return () => clearInterval(interval);
   }, [running]);
 
   useEffect(() => {
@@ -139,9 +134,9 @@ function Settings({ setInputValue, inputValue }) {
   const handleSaved = (e) => {
     e.preventDefault();
     setInputValue({
-      pomodoro,
-      shortBreak,
-      longBreak,
+      pomodoro: `${pomodoro} : 00`,
+      shortBreak: `${shortBreak} : 00`,
+      longBreak: `${longBreak} : 00`,
     });
     closeModal();
   };
@@ -187,7 +182,7 @@ function Modal({
         <div className="item">
           <p>pomodoro</p>
           <input
-            type="number"
+            type="text"
             name="pomodoro"
             min="0"
             max="999"
@@ -198,7 +193,7 @@ function Modal({
         <div className="item">
           <p>short break</p>
           <input
-            type="number"
+            type="text"
             name="shortBreak"
             min="0"
             max="999"
@@ -209,7 +204,7 @@ function Modal({
         <div className="item">
           <p>long break</p>
           <input
-            type="number"
+            type="text"
             name="longBreak"
             min="0"
             max="999"
@@ -218,22 +213,25 @@ function Modal({
           />
         </div>
       </div>
+
       <div className="font">
         <h1>FONT</h1>
         <div className="fontBtnBox">
-          <button className="fontBtn">Aa</button>
-          <button className="fontBtn">Aa</button>
-          <button className="fontBtn">Aa</button>
+          <input type="radio" name="font" id="" />
+          <input type="radio" name="font" id="" />
+          <input type="radio" name="font" id="" />
         </div>
       </div>
+
       <div className="color">
         <h1>COLOR</h1>
         <div className="colorBtnBox">
-          <button className="colorBtn"> </button>
-          <button className="colorBtn"> </button>
-          <button className="colorBtn"> </button>
+          <input type="radio" name="theme" id="" />
+          <input type="radio" name="theme" id="" />
+          <input type="radio" name="theme" id="" />
         </div>
       </div>
+
       <button onClick={handleSaved} className="apply">
         Apply
       </button>

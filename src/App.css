@@ -205,12 +205,6 @@ body {
   border-bottom: 1px solid #e3e1e1;
 }
 
-.fontBtnBox {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-}
-
 .fontBtn {
   border: 1px solid black;
   background: none;
@@ -226,21 +220,99 @@ body {
   align-items: center;
   padding: 24px 0 24px 0;
 }
+
+input[type="radio"] {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  cursor: pointer;
+}
+
+
+.fontBtnBox {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  input[type="radio"]:checked:after {
+    content: "Aa";
+    color: rgba(255, 255, 255, 1);
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background: rgba(239, 241, 250, 1);
+    display: flex;
+    justify-content: center;
+    padding-top: 6px;
+    background: rgba(22, 25, 50, 1);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+  input[type="radio"]:checked:after {
+    content:"Aa";
+    font-size: 24px;
+    color: rgba(22, 25, 50, 1);
+    font-weight: 900;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+}
+
+
 .colorBtnBox {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
+
+  input[type="radio"]::before {
+    content: "";
+    background: rgba(239, 241, 250, 1);
+    color: rgba(30, 33, 63, .73);
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    padding-top: 6px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+  input[type="radio"]::before {
+    content: "";
+    color: rgba(30, 33, 63, .73);
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    padding-top: 6px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+  input[type="radio"]:nth-child(1):before {
+    background-color: rgba(248, 112, 112, 1);
+  }
+  
+  input[type="radio"]:nth-child(2)::before {
+    background-color: rgba(112, 243, 248, 1);
+  }
+  
+  input[type="radio"]:nth-child(3)::before {
+    background-color: rgba(216, 129, 248, 1);
+  }
 }
 
-.colorBtn {
-  border: 1px solid black;
-  background: none;
-  border-radius: 100%;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-}
+
+
 
 .apply {
   display: flex;
